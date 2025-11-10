@@ -4,7 +4,7 @@ let array = [2, -6, 4, 8, 1, -9];
 
 let negativeNumber = [];
 
-function findNeagtiveNumber(arr) {
+function findNeagtiveNumber(array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] < 0) {
       negativeNumber.push(array[i]);
