@@ -101,6 +101,35 @@ class WithTailLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    //    if no value in list is present
+
+    if (!this.head) {
+      return undefined;
+    }
+    // last element
+    let temp = this.head;
+    // second last
+    let pre = this.head;
+
+    //    if multipleValue
+
+    while (temp.next) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+
+    if (this.length === 0) {
+      this.tail = null;
+      this.head = null;
+    }
+
+    return temp;
+  }
+
   print() {
     let current = this.head;
     while (current) {
@@ -114,10 +143,14 @@ let ll = new WithTailLinkedList();
 
 ll.push(10);
 ll.push(20);
-ll.push(30);
-ll.push(40);
-ll.push(90);
+// ll.push(30);
+// ll.push(40);
+// ll.push(90);
+console.log(ll.pop()?.value);
+
 ll.print();
+
+
 
 // time complexity = 0(1)
 // space complexity = 0(1)
